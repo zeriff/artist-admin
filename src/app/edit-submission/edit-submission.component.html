@@ -1,0 +1,38 @@
+<div [ngClass]="{'hidden': !data.title}">
+  <div (click)="onMarkReviewed(data.id)" [ngClass]="{'ui mini button': true, loading: loading}">Mark Reviwed</div>
+  <div class="ui divider"></div>
+  <form #submission="ngForm" (ngSubmit)="onSubmitEdits(submission.form.value);" class="ui form">
+    <div class="ui fluid image" *ngIf="data.image != null">
+      <img [src]="data.image">
+    </div>
+    <div class="ui divider"></div>
+    <div class="error" *ngIf="submission.form.errors">
+      <div class="ui negative message">
+        <div class="header">
+          Oops you missed something..
+        </div>
+        <ul class="list">
+          {{submission.form.errors}}
+        </ul>
+      </div>
+    </div>
+
+    <div class="field">
+      <input type="text" name="title" ngModel #title="ngModel" placeholder="Title" />
+    </div>
+    <div class="field">
+      <textarea type="text" rows="4" name="desc" ngModel #desc="ngModel" placeholder="About video"></textarea>
+    </div>
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="header">
+          {{data.name}}
+        </div>
+        <div class="extra content">
+          {{data.email}}
+        </div>
+      </div>
+    </div>
+    <button [disabled]="!submission.valid" [ngClass]="{'ui mini right floated button': true, loading: loading}">Submit Edits</button>
+  </form>
+</div>

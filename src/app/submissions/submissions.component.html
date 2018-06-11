@@ -1,0 +1,27 @@
+<div class="ui container">
+  <div class="ui column stackable centered grid">
+    <div class="ten wide column">
+      <div class="column-container">
+        <br>
+        <div class="ui centered cards">
+          <div [ngClass]="{'card': true, 'yellow': submission.id == selectedSubmission.id}" *ngFor="let submission of submissions">
+            <div class="content">
+              <div class="header">{{submission.name}}</div>
+              <div class="meta">{{submission.email}}</div>
+              <div class="description">
+                {{submission.desc}}
+              </div>
+            </div>
+            <div class="extra content">
+              <button class="ui mini button" (click)="onReviewClick(submission)">Review</button>
+              <button class="ui mini button">Open video</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="six wide column">
+      <app-edit-submission [data]="selectedSubmission" [onSubmitEdits]="submitEdits" [onMarkReviewed]="markReviewed"></app-edit-submission>
+    </div>
+  </div>
+</div>
