@@ -22,4 +22,14 @@ export class ApiService {
     let url = `${this.base_url}/submissions/mark_reviewed/${id}`;
     return this.http.get(url);
   }
+
+  getCategories() {
+    let url = `${this.base_url}/categories`;
+    return this.http.get(url);
+  }
+
+  postCategory(data) {
+    let url = `${this.base_url}/categories`;
+    return this.http.post(url, data);
+  }
 }

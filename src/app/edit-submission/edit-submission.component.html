@@ -23,6 +23,11 @@
     <div class="field">
       <textarea type="text" rows="4" name="desc" ngModel #desc="ngModel" placeholder="About video"></textarea>
     </div>
+    <div class="field">
+      <select name="category_id" ngModel #category_id="ngModel">
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+      </select>
+    </div>
     <div class="ui fluid card">
       <div class="content">
         <div class="header">
@@ -33,6 +38,6 @@
         </div>
       </div>
     </div>
-    <button [disabled]="!submission.valid" [ngClass]="{'ui mini right floated button': true, loading: loading}">Submit Edits</button>
+    <button [disabled]="!submission.valid || loading" [ngClass]="{'ui mini right floated button': true, loading: loading}">Submit Edits</button>
   </form>
 </div>

@@ -2,3 +2,7 @@
   height: 110%;
   overflow-x: hidden;
 } */
+
+.hidden {
+  display: none;
+}

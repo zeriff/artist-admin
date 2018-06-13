@@ -5,4 +5,5 @@ export interface Submission {
   title?: string;
   desc?: string;
   image?: string;
+  is_reviewed?: boolean;
 }

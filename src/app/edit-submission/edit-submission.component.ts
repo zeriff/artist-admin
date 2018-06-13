@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, OnChanges } from "@angular/core";
 import { Input } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { ApiService } from "../services/api.service";
 
 @Component({
   selector: "app-edit-submission",
@@ -15,18 +16,25 @@ export class EditSubmissionComponent implements OnInit, OnChanges {
   onSubmitEdits() {}
   @Input()
   onMarkReviewed() {}
-
+  @Input() state: boolean;
+  private categories: any = [];
   private loading: boolean = false;
-  constructor() {}
+
+  constructor(private api: ApiService) {}
 
   ngOnChanges() {
     if (this.data.title != null) {
       this.submitForm.form.setValue({
         title: this.data.title,
-        desc: this.data.desc
+        desc: this.data.desc,
+        category_id: this.data.category_id
       });
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.api.getCategories().subscribe(res => {
+      this.categories = res;
+    });
+  }
 }

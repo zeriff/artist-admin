@@ -1,7 +1,9 @@
-<div class="ui container centered">
-  <a class="ui button" routerLink="submissions">Submissions</a>
-  <a class="ui button" routerLink="">Dashboard</a>
-  <div class="ui divider"></div>
+<br>
+<div class="ui container">
+  <a routerLink="/" class="ui mini button">Dashboard</a>
+  <a routerLink="/categories" class="ui mini button">Manage Categories</a>
+  <a routerLink="/submissions" class="ui mini button">Manage Submissions</a>
 </div>
+<div class="ui divider"></div>
 <router-outlet></router-outlet>
-<ng-template app-modal-holder></ng-template>
+<app-toast></app-toast>

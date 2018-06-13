@@ -4,7 +4,7 @@
       <div class="column-container">
         <br>
         <div class="ui centered cards">
-          <div [ngClass]="{'card': true, 'yellow': submission.id == selectedSubmission.id}" *ngFor="let submission of submissions">
+          <div [ngClass]="{'card': true, 'yellow': submission.id == selectedSubmission.id, 'red': submission.is_reviewed}" *ngFor="let submission of submissions">
             <div class="content">
               <div class="header">{{submission.name}}</div>
               <div class="meta">{{submission.email}}</div>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="six wide column">
-      <app-edit-submission [data]="selectedSubmission" [onSubmitEdits]="submitEdits" [onMarkReviewed]="markReviewed"></app-edit-submission>
+      <app-edit-submission [state]="loading" [data]="selectedSubmission" [onSubmitEdits]="submitEdits" [onMarkReviewed]="markReviewed"></app-edit-submission>
     </div>
   </div>
 </div>
