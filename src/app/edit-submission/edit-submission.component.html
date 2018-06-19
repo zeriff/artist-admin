@@ -1,7 +1,7 @@
 <div [ngClass]="{'hidden': !data.title}">
   <div (click)="onMarkReviewed(data.id)" [ngClass]="{'ui mini button': true, loading: loading}">Mark Reviwed</div>
   <div class="ui divider"></div>
-  <form #submission="ngForm" (ngSubmit)="onSubmitEdits();" class="ui form">
+  <form #submission="ngForm" (ngSubmit)="onSubmitEdits(submission.form.value)" class="ui form">
     <div class="ui fluid image" *ngIf="data.image != null">
       <img [src]="data.image">
     </div>
@@ -18,13 +18,13 @@
     </div>
 
     <div class="field">
-      <input type="text" name="title" ngModel #title="ngModel" placeholder="Title" />
+      <input type="text" name="title" (ngModel)="title" #title="ngModel" placeholder="Title" />
     </div>
     <div class="field">
-      <textarea type="text" rows="4" name="desc" ngModel #desc="ngModel" placeholder="About video"></textarea>
+      <textarea type="text" rows="4" name="desc" (ngModel)="desc" #desc="ngModel" placeholder="About video"></textarea>
     </div>
     <div class="field">
-      <select name="category_id" ngModel #category_id="ngModel">
+      <select name="category_id" (ngModel)="category_id" #category_id="ngModel">
         <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
       </select>
     </div>

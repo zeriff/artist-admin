@@ -13,7 +13,7 @@ export class EditSubmissionComponent implements OnInit, OnChanges {
 
   @Input() data = null;
   @Input()
-  onSubmitEdits() {}
+  onSubmitEdits(data) {}
   @Input()
   onMarkReviewed(id) {}
   @Input() state: boolean;

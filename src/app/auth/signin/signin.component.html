@@ -4,10 +4,10 @@
       <h2>Sign In</h2>
       <form class="ui form" #signin="ngForm" (ngSubmit)="onSubmit()">
         <div class="field">
-          <input type="text" name="email" ngModel #email="ngModel" placeholder="Email" />
+          <input type="text" name="email" (ngModel)="email" #email="ngModel" placeholder="Email" />
         </div>
         <div class="field">
-          <input type="password" name="password" ngModel #password="ngModel" placeholder="Password" />
+          <input type="password" name="password" (ngModel)="password" #password="ngModel" placeholder="Password" />
         </div>
         <button type="submit" class="ui right floated button">Sign In</button>
       </form>
