@@ -1,12 +1,18 @@
 import { Injectable, Inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Credentials } from "../interface/credentials";
 
 @Injectable({
   providedIn: "root"
 })
 export class ApiService {
   constructor(private http: HttpClient, @Inject("BASE_URL") private base_url) {}
+
+  authenticate(credentials): Observable<any> {
+    let url = `${this.base_url}/authenticate`;
+    return this.http.post(url, credentials);
+  }
 
   getSubmissions(): Observable<any> {
     let url = `${this.base_url}/submissions`;

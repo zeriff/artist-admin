@@ -1,7 +1,7 @@
 <div [ngClass]="{'hidden': !data.title}">
   <div (click)="onMarkReviewed(data.id)" [ngClass]="{'ui mini button': true, loading: loading}">Mark Reviwed</div>
   <div class="ui divider"></div>
-  <form #submission="ngForm" (ngSubmit)="onSubmitEdits(submission.form.value);" class="ui form">
+  <form #submission="ngForm" (ngSubmit)="onSubmitEdits();" class="ui form">
     <div class="ui fluid image" *ngIf="data.image != null">
       <img [src]="data.image">
     </div>

@@ -7,8 +7,8 @@ import { ToastService } from "../../services/toast.service";
   styleUrls: ["./toast.component.css"]
 })
 export class ToastComponent implements OnInit {
-  private message: string = "";
-  private active: boolean = false;
+  message: string = "";
+  active: boolean = false;
 
   constructor(private toastService: ToastService) {}
 

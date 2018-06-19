@@ -10,9 +10,9 @@ import * as _ from "lodash";
   styleUrls: ["./submissions.component.css"]
 })
 export class SubmissionsComponent implements OnInit {
-  private submissions = [];
-  private selectedSubmission: Submission = {};
-  private loading: boolean = false;
+  submissions = [];
+  selectedSubmission: Submission = {};
+  loading: boolean = false;
   @Input() content = "";
 
   constructor(private api: ApiService, private toast: ToastService) {}

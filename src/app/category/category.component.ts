@@ -8,8 +8,8 @@ import { ApiService } from "../services/api.service";
   styleUrls: ["./category.component.css"]
 })
 export class CategoryComponent implements OnInit {
-  private loading: boolean = false;
-  private categories: any = [];
+  loading: boolean = false;
+  categories: any = [];
   @ViewChild("category") category: NgForm;
   constructor(private api: ApiService) {}
 

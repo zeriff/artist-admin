@@ -15,10 +15,10 @@ export class EditSubmissionComponent implements OnInit, OnChanges {
   @Input()
   onSubmitEdits() {}
   @Input()
-  onMarkReviewed() {}
+  onMarkReviewed(id) {}
   @Input() state: boolean;
-  private categories: any = [];
-  private loading: boolean = false;
+  categories: any = [];
+  loading: boolean = false;
 
   constructor(private api: ApiService) {}
 

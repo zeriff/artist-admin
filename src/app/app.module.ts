@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, ErrorHandler } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
@@ -11,13 +11,18 @@ import { EditSubmissionComponent } from "./edit-submission/edit-submission.compo
 import { ToastComponent } from "./assets/toast/toast.component";
 import { LoaderComponent } from "./assets/loader/loader.component";
 import { CategoryComponent } from "./category/category.component";
+import { SigninComponent } from "./auth/signin/signin.component";
 
-const BASE_URL = "http://localhost:3000";
+import { TokenInterceptor } from "./auth/token.interceptor";
+import { ErrorsHandler } from "./providers/errors.handler";
+
+const BASE_URL = "https://54ae2508.ngrok.io";
 
 const appRoutes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "submissions", component: SubmissionsComponent },
-  { path: "categories", component: CategoryComponent }
+  { path: "categories", component: CategoryComponent },
+  { path: "auth/signin", component: SigninComponent }
 ];
 
 @NgModule({
@@ -28,7 +33,8 @@ const appRoutes: Routes = [
     SubmissionsComponent,
     DashboardComponent,
     EditSubmissionComponent,
-    CategoryComponent
+    CategoryComponent,
+    SigninComponent
   ],
   imports: [
     FormsModule,
@@ -37,6 +43,15 @@ const appRoutes: Routes = [
     BrowserModule
   ],
   providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ErrorsHandler
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     {
       provide: "BASE_URL",
       useFactory: function() {

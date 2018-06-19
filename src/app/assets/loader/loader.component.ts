@@ -21,6 +21,6 @@ export class LoaderComponent implements OnInit, OnDestroy {
     );
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe()
+    this.subscription.unsubscribe();
   }
 }
