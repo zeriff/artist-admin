@@ -9,7 +9,6 @@ export class ApiService {
   constructor(private http: HttpClient, @Inject("BASE_URL") private base_url) {}
 
   authenticate(credentials): Observable<any> {
-    console.log(credentials)
     let url = `${this.base_url}/authenticate`;
     return this.http.post(url, credentials);
   }

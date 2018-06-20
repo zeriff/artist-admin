@@ -16,7 +16,7 @@ import { SigninComponent } from "./auth/signin/signin.component";
 import { TokenInterceptor } from "./auth/token.interceptor";
 import { ErrorsHandler } from "./providers/errors.handler";
 
-const BASE_URL = "https://54ae2508.ngrok.io";
+const BASE_URL = "https://f225e982.ngrok.io";
 
 const appRoutes: Routes = [
   { path: "", component: DashboardComponent },

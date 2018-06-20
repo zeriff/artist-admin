@@ -19,8 +19,8 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit() {
-    this.api.authenticate(this.signIn.form.value).subscribe(res => {
+  onSubmit(data) {
+    this.api.authenticate(data).subscribe(res => {
       this.tokenService.setToken(res.auth_token);
       this.router.navigate(["submissions"]);
     });
